@@ -13,12 +13,12 @@ function App() {
   
   // const { data, setData } = useState()
   
-  // useEffect(() => {
+  useEffect(() => {
     
-  //   fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&type=movie&s=${titulo}&y=2024`)
-  //   .then(res => { return res.json(); })
-  //   .then(res => { console.log(res)})
-  // }, [])
+    fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&type=movie&s=${titulo}`)
+    .then(res => { return res.json(); })
+    .then(res => { console.log(res)})
+  }, [titulo])
   
   // function listarPeliculas(data) {
   //   const peliculas = data?.Search || []
