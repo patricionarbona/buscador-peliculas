@@ -25,10 +25,10 @@ function App() {
   // }
 
 
-  // const handleChange = (event) => {
-  //   console.log(event.target.value)
-  //   setTitulo(event.target.value)
-  // }
+  const handleChange = (event) => {
+    console.log(event.target.value)
+    setTitulo(event.target.value)
+  }
 
 
   return (
@@ -37,7 +37,7 @@ function App() {
       <h1 className='text-2xl'>Buscador de peliculas</h1>
       <div className='flex gap-2 items-center'>
         <span className='text-slate-200'>Buscar:</span>
-        <input  className='bg-slate-300 text-slate-800 w-28 md:w-56' type="text" />
+        <input onChange={handleChange} className='bg-slate-300 text-slate-800 w-28 md:w-56' type="text" />
         <button className='bg-slate-300 text-slate-800 hover:bg-slate-100 w-8'>
         <svg className='mx-auto' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
             <path d="M17.5 17.5L22 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
