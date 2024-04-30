@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 * {
     font-family: Machine, Helvetica, Arial, sans-serif;
     font-size: 26px;
     letter-spacing: .7px;
     line-height: 26px;
     font-weight: 400;
-    /* word-break: break-word; */
 }
