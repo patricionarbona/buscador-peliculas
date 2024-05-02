@@ -9,25 +9,33 @@ function App() {
 
 
   const API_KEY = "3bc1c142"
-  const [ titulo, setTitulo ] = useState("garfield")
-  
-  // const { data, setData } = useState()
-  
+  const [ data, setData ] = useState()
+
   useEffect(() => {
-    
+    recuperarPelicula("pokemon")
+  }, [])
+  
+  function listarPeliculas(data) {
+    const peliculas = data?.Search || []
+    return peliculas.map((pelicula) => (
+      <Pelicula key={pelicula?.imdbID} year={pelicula?.Year} titulo={pelicula?.Title} rutaFoto={pelicula?.Poster}/>
+    )
+    )
+  }
+
+
+ function recuperarPelicula(titulo) {
     fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&type=movie&s=${titulo}`)
     .then(res => { return res.json(); })
-    .then(res => { console.log(res)})
-  }, [titulo])
-  
-  // function listarPeliculas(data) {
-  //   const peliculas = data?.Search || []
-  // }
-
+    .then(res => { 
+      console.log(res)
+      setData(res)
+    })
+  }
 
   const handleChange = (event) => {
     console.log(event.target.value)
-    setTitulo(event.target.value)
+    recuperarPelicula(event.target.value);
   }
 
 
@@ -47,16 +55,10 @@ function App() {
       </div>
     </div>
 
-    <div className='grid grid-cols-1 md:grid-cols-4 grid-rows-1 auto-cols-fr gap-2 gap-y-14 md:gap-y-24 w-screen justify-items-center'>
-      <Pelicula year={"2024"} titulo={"Garfield: la película"} rutaFoto={"https://m.media-amazon.com/images/M/MV5BNGQ2MTc1MGUtNTIxZS00ZmIwLTkyYWUtMzViM2U5NmEyOWE2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg"}/>
-      <Pelicula year={"2024"} titulo={"Garfield: la película"} rutaFoto={"https://m.media-amazon.com/images/M/MV5BNGQ2MTc1MGUtNTIxZS00ZmIwLTkyYWUtMzViM2U5NmEyOWE2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg"}/>
-      <Pelicula year={"2024"} titulo={"Garfield: la película"} rutaFoto={"https://m.media-amazon.com/images/M/MV5BNGQ2MTc1MGUtNTIxZS00ZmIwLTkyYWUtMzViM2U5NmEyOWE2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg"}/>
-      <Pelicula year={"2024"} titulo={"Garfield: la película"} rutaFoto={"https://m.media-amazon.com/images/M/MV5BNGQ2MTc1MGUtNTIxZS00ZmIwLTkyYWUtMzViM2U5NmEyOWE2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg"}/>
-      <Pelicula year={"2024"} titulo={"Garfield: la película"} rutaFoto={"https://m.media-amazon.com/images/M/MV5BNGQ2MTc1MGUtNTIxZS00ZmIwLTkyYWUtMzViM2U5NmEyOWE2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg"}/>
-      <Pelicula year={"2024"} titulo={"Garfield: la película"} rutaFoto={"https://m.media-amazon.com/images/M/MV5BNGQ2MTc1MGUtNTIxZS00ZmIwLTkyYWUtMzViM2U5NmEyOWE2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg"}/>
-      <Pelicula year={"2024"} titulo={"Garfield: la película"} rutaFoto={"https://m.media-amazon.com/images/M/MV5BNGQ2MTc1MGUtNTIxZS00ZmIwLTkyYWUtMzViM2U5NmEyOWE2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg"}/>
-      <Pelicula year={"2024"} titulo={"Garfield: la película"} rutaFoto={"https://m.media-amazon.com/images/M/MV5BNGQ2MTc1MGUtNTIxZS00ZmIwLTkyYWUtMzViM2U5NmEyOWE2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg"}/>
-      <Pelicula year={"2024"} titulo={"Garfield: la película"} rutaFoto={"https://m.media-amazon.com/images/M/MV5BNGQ2MTc1MGUtNTIxZS00ZmIwLTkyYWUtMzViM2U5NmEyOWE2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg"}/>
+    <div className='grid grid-cols-1 lg:grid-cols-4 grid-rows-1 auto-cols-fr gap-2 gap-y-14 md:gap-y-24 w-screen justify-items-center'>
+      {
+        listarPeliculas(data)
+      }
     </div>
     </>
   )
