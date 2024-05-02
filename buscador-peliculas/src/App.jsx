@@ -18,7 +18,7 @@ function App() {
   function listarPeliculas(data) {
     const peliculas = data?.Search || []
     return peliculas.map((pelicula) => (
-      <Pelicula key={pelicula?.imdbID} year={pelicula?.Year} titulo={pelicula?.Title} rutaFoto={pelicula?.Poster}/>
+      <Pelicula key={pelicula.imdbID} year={pelicula.Year} titulo={pelicula.Title} rutaFoto={pelicula.Poster}/>
     )
     )
   }
