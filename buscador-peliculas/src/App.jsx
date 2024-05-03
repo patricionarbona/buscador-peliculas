@@ -39,6 +39,15 @@ function App() {
   }
 
 
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return function (...args) {
+      const context = this;
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => func.apply(context,args),delay);
+    }
+  }
+
   return (
     <>
     <div className=' flex flex-col items-center gap-4 mb-8 mx-auto w-screen py-6'>
