@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Pelicula from './components/pelicula/Pelicula.jsx'
 import './App.css'
 
@@ -10,9 +10,11 @@ function App() {
 
   const API_KEY = "3bc1c142"
   const [ data, setData ] = useState()
+  const [ busqueda, setBusqueda ] = useState("pokemon")
+  const previousBusqueda = useRef('')
 
   useEffect(() => {
-    recuperarPelicula("pokemon")
+    recuperarPelicula(busqueda)
   }, [])
   
   function listarPeliculas(data) {
