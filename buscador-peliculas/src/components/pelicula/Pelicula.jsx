@@ -6,12 +6,11 @@ function Pelicula({rutaFoto, titulo, year}) {
 
     return (
         <>
-            <div className="relative z-10 h-56 md:h-48 w-40">
-                <img className="h-52 w-36 md:h-48" src={
-                    rutaFoto === "N/A" ? notFound : rutaFoto} alt="" />
-                <div className="absolute z-10 -bottom-5 md:-bottom-10 bg-slate-500 bg-opacity-10 w-36 ">
-                    <h2 className="uppercase">{titulo}</h2>
-                    <p>{year}</p>
+            <div className="relative flex flex-col items-center w-60 h-96 group shadow-lg shadow-yellow-200">
+                <h3 className="py-4 ">{year}</h3>
+                <img className="h-full w-56 mb-1" src={rutaFoto === "N/A" ? notFound : rutaFoto} alt="" />
+                <div className="absolute bottom-0 w-56 bg-blue-800 bg-opacity-45 pb-2 line-clamp-2 group-hover:line-clamp-none group-hover:opacity-100 transition-opacity duration-300">
+                    <h2 className="uppercase ">{titulo}</h2>
                 </div>
             </div>
         </>
