@@ -81,7 +81,7 @@ function App() {
       </div>
     </div>
 
-    <div className='grid grid-cols-1 lg:grid-cols-4 grid-rows-1 auto-cols-fr gap-2 gap-y-14 md:gap-y-24 w-screen justify-items-center'>
+    <div className='w-screen grid grid-cols-1 grid-rows-1 auto-rows-fr sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl-grid-cols-4 gap-x-4 '>
       {
         listarPeliculas(data)
       }
