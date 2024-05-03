@@ -32,6 +32,7 @@ function App() {
     .then(res => { 
       console.log(res)
       setData(res)
+      previousBusqueda.current = titulo
     })
   }
 
@@ -39,7 +40,7 @@ function App() {
     console.log(event.target.value)
     setBusqueda(event.target.value)
     console.log(previousBusqueda.current)
-    // recuperarPelicula(event.target.value);
+    recuperarPelicula(event.target.value);
   }
 
   const handleClick = () => {
@@ -48,7 +49,6 @@ function App() {
     console.log(previousBusqueda)
     if(busqueda !== previousBusqueda.current) {
       recuperarPelicula(busqueda)
-      previousBusqueda.current =busqueda
     }
 
   }
