@@ -1,8 +1,6 @@
-function Pelicula({rutaFoto, titulo, year}) {
+function Pelicula({ rutaFoto, titulo, year }) {
 
     const notFound = "https://i.kym-cdn.com/photos/images/original/000/091/881/tumblr_le3iimRqBr1qe91wdo1_500.jpg"
-
-    // const notFound = "https://prestashop.com/sites/default/files/wysiwyg/404_not_found.png"
 
     return (
         <>
