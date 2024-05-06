@@ -14,16 +14,6 @@ function App() {
   const previousBusqueda = useRef('')
 
 
-
-  function listarPeliculas(data) {
-    const peliculas = data?.Search || []
-    return peliculas.map((pelicula) => (
-      <Pelicula key={pelicula.imdbID} year={pelicula.Year} titulo={pelicula.Title} rutaFoto={pelicula.Poster} />
-    )
-    )
-  }
-
-
   function recuperarPelicula(titulo) {
     fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&type=movie&s=${titulo}`)
       .then(res => { return res.json(); })
@@ -111,7 +101,10 @@ function App() {
 
       <div className='w-screen grid grid-cols-1 grid-rows-1 auto-rows-fr sm:grid-cols-2 lg:grid-cols-3   gap-x-4 gap-y-8 justify-items-center'>
         {
-          listarPeliculas(data)
+          // listarPeliculas(data)
+          data?.Search.map((pelicula) => (
+            <Pelicula key={pelicula.imdbID} year={pelicula.Year} titulo={pelicula.Title} rutaFoto={pelicula.Poster} />
+          ))
         }
       </div>
     </>
