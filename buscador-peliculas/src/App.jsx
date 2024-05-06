@@ -102,7 +102,7 @@ function App() {
       <div className='w-screen grid grid-cols-1 grid-rows-1 auto-rows-fr sm:grid-cols-2 lg:grid-cols-3   gap-x-4 gap-y-8 justify-items-center'>
         {
           // listarPeliculas(data)
-          data?.Search.map((pelicula) => (
+          data?.Search?.map((pelicula) => (
             <Pelicula key={pelicula.imdbID} year={pelicula.Year} titulo={pelicula.Title} rutaFoto={pelicula.Poster} />
           ))
         }
